@@ -5,7 +5,7 @@ LivetのMessageが表示されないことがあるの再現コード
 MainWindowのEventTriggerにより、下記動作を行います。
 1. ダイアログを表示する
 2. MainWindow上のTextBlockの文字列を更新する
- 
+
 ## 期待する結果
 左クリック(PreviewMouseLeftButtonDown)とファイルドロップ(Drop)の各イベントで、上記動作が行われる。
 
@@ -21,8 +21,21 @@ Drop時はエクスプローラーなどのアプリにフォーカスが移っ�
 
 Livet/Livet.Shared/Behaviors/Messaging/InteractionMessageAction.cs -> Invoke()
 
-## 対策
+## 対策1
 PreviewDragEnterイベント時に、WindowをActive化するBehaviorを作成して対応した。
 Drop操作を行うと、本ソフトにフォーカス移る動作になっちゃったが、良しとする。
+
+## 対策2
+xamlで InformationDialogInteractionMessageAction に InvokeActionOnlyWhenWindowIsActive="False" を設定する。
+
+本対応により、Window の Active状態に関わらず、ダイアログ（Messagebox）が表示されるようになる。
+
+```xaml
+<l:InformationDialogInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False" />
+```
+
+こちらは、okazuki様に教えていただきました。
+
+twitterのつぶやきに対して的確なアドバイス頂き勉強になりました。大変感謝しております。
 
 以上
