@@ -21,10 +21,14 @@ namespace LivetMessageSample.Views.Behaviors
         // WindowがActiveでないとLivetのMessengerが表示されないので有効化する
         private static void ActivateParentWindow(object sender, EventArgs e)
         {
-            if (sender is DependencyObject d)
+            if (sender is Window window1)
             {
-                var window = UIHelper.TryFindParent<Window>(d);
-                window?.Activate();
+                window1.Activate();
+            }
+            else if (sender is DependencyObject d)
+            {
+                var window2 = UIHelper.TryFindParent<Window>(d);
+                window2?.Activate();
             }
         }
 

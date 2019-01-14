@@ -36,7 +36,7 @@ namespace LivetMessageSample.ViewModels
                 .Subscribe(_ =>
                 {
                     Messenger.Raise(new InformationMessage(
-                        $"Drop({Counter}回目):表示されたりされなかったりします…",
+                        $"Drop({Counter}回目):DragEnterでWindowをActiveにしてるので表示されます",
                         "Title", MessageBoxImage.Information, "Info"));
                     Text.Value = $"Drop({Counter}回目):表示されます";
                 })

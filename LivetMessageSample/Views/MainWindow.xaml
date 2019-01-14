@@ -33,11 +33,11 @@
         </l:InteractionMessageTrigger>
     </i:Interaction.Triggers>
 
-    <StackPanel>
-        <i:Interaction.Behaviors>
-            <vb:DropWindowActiveBehavior />
-        </i:Interaction.Behaviors>
+    <i:Interaction.Behaviors>
+        <vb:DropWindowActiveBehavior />
+    </i:Interaction.Behaviors>
 
+    <StackPanel>
         <TextBlock Margin="10" >
             <Run Text="マウス左クリック か ファイルをドロップ すると、" />
             <LineBreak />
