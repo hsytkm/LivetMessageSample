@@ -7,6 +7,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:v="clr-namespace:LivetMessageSample.Views"
+        xmlns:vb="clr-namespace:LivetMessageSample.Views.Behaviors"
         xmlns:vm="clr-namespace:LivetMessageSample.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="200" Width="400"
@@ -33,6 +34,10 @@
     </i:Interaction.Triggers>
 
     <StackPanel>
+        <i:Interaction.Behaviors>
+            <vb:DropWindowActiveBehavior />
+        </i:Interaction.Behaviors>
+
         <TextBlock Margin="10" >
             <Run Text="マウス左クリック か ファイルをドロップ すると、" />
             <LineBreak />
