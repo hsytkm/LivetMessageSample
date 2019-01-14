@@ -29,14 +29,21 @@
         </i:EventTrigger>
 
         <l:InteractionMessageTrigger Messenger="{Binding Messenger}" MessageKey="Info" >
+            <!-- okazuki様に教えて頂いたプロパティ対応(非アクティブでもダイアログが表示される) -->
+            <l:InformationDialogInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False" />
+
+            <!-- 
             <l:InformationDialogInteractionMessageAction />
+            -->
         </l:InteractionMessageTrigger>
     </i:Interaction.Triggers>
 
+    <!-- DragEnterでWindowをActiveにしてダイアログを表示する対応
     <i:Interaction.Behaviors>
         <vb:DropWindowActiveBehavior />
     </i:Interaction.Behaviors>
-
+    -->
+    
     <StackPanel>
         <TextBlock Margin="10" >
             <Run Text="マウス左クリック か ファイルをドロップ すると、" />
